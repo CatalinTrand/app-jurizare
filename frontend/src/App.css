@@ -14,6 +14,11 @@
     align-items: center;
 }
 
+.content.create {
+    align-items: flex-start;
+    width: 700px;
+}
+
 .form {
     display: flex;
     flex-direction: column;
@@ -27,8 +32,10 @@
 .button {
     border: 1px solid black;
     border-radius: 3px;
-    padding: 10px 5px;
+    padding: 5px 15px;
+    cursor: pointer;
     text-align: center;
+    margin-top: 50px;
 }
 
 .button:hover {
@@ -38,4 +45,92 @@
 .error {
     color: red;
     max-width: 200px;
+}
+
+.standard-btn {
+    width: fit-content;
+    padding: 5px 15px;
+    border: 1px solid black;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.green-btn {
+    background-color: rgba(0, 177, 0, 0.49);
+}
+
+.green-btn:hover {
+    background-color: rgba(0, 177, 0, 0.31) !important;
+}
+
+.red-btn {
+    background-color: rgba(255, 0, 0, 0.38);
+}
+
+.red-btn:hover {
+    background-color: rgba(255, 0, 0, 0.28) !important;
+}
+
+.standard-btn:hover {
+    background-color: lightgrey;
+}
+
+.contest-list {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contest-list > div {
+    padding: 3px;
+    margin: 5px;
+    width: 100%;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contest-tests {
+    margin: 20px 0;
+}
+
+.contest-tests > div {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+
+.contest-tests > div > div {
+    display: flex;
+    flex-direction: row;
+}
+
+.contest-tests > div > input {
+    padding: 2px;
+    margin-top: 3px;
+    margin-left: 15px;
+}
+
+.contest-tests > div > div > input {
+    padding: 2px;
+}
+
+.contest-tests > div > div > div {
+    border: 1px solid black;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.contest-participants {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.contest-participants > input {
+    padding: 2px;
+    margin-top: 3px;
 }
