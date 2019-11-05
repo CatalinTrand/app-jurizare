@@ -1,8 +1,26 @@
-Lab2 MPS- Prima intalnire a echipei
+L2 MPS- Prima intalnire a echipei
 
--am discutat/inteles cerinta ca sa stabilim cam care e flow-ul general al aplicatiei;
--problema intampinata: nu se intelesese initial ca aplicatia va fi folosita in timpul unui concurs live de catre juriu si ca nu trebuie sa oferim si imagini/filmari cu ce se intampla efectiv in timpul concursului;
--am stabilit cam ce vrem sa facem la proiect si ce ne-ar fi mai usor pentru inceput--aplicatie web; 
--am vazut fiecare cu ce tehnologii utile e familiar-majoritatea nu au experienta cu partea asta, mai putin Radu care a mai lucrat la frontend si Catalin care a lucrat cu toate;
--ne-am decis ce tehnologii vom folosi in functie de ce e potrivit obiectivului nostru pentru proiect, ce stim si ce e mai usor de invatat/folosit: pt backend php(Laravel), pe frontend react javascript, html, css;
--ne-am decis ca saptamana urmatoare cei care nu au lucrat cu asa ceva, doar sa intelega in mare cum functioneaza o astfel de aplicatie web, sa aiba o intelegere generala asupra felului in care tehnologiile vor fi folosite; cei care stiu deja, pot sa se apuce sa lucreze la aplicatie chiar daca nu s-a discutat in detaliu ce vom face exact. 
+Agenda
+
+	-intelegerea cerintei
+	-cunoasterea membrilor echipei si a aptitudinilor lor
+	-o schita generala asupra ce vrem sa facem
+
+Participanti
+
+	-Radu
+	-Catalin
+	-Silvia
+	-Cristi
+
+Discutii
+
+	-am discutat cerinta ca sa o intelegem si sa stabilim cam care e flow-ul general al aplicatiei. Nu se intelesese initial ca aplicatia va fi folosita in timpul unui concurs live de catre juriu si ca nu trebuie sa oferim si imagini/filmari cu ce se intampla efectiv in timpul concursului;
+	-am stabilit cam ce vrem sa facem la proiect si ce ne ar fi mai usor pentru inceput--aplicatie web; 
+	-am vazut fiecare cu ce tehnologii utile e familiar-majoritatea nu au experienta cu partea asta, mai putin Radu care a mai lucrat la frontend si Catalin care a lucrat cu toate;
+	-ne-am decis ce tehnologii vom folosi in functie de ce e potrivit obiectivului nostru pentru proiect, ce stim si ce e mai usor de invatat/folosit: pt backend php(Laravel), pe frontend react javascript, html, css;
+	-ne-am decis ca saptamana urmatoare cei care nu au lucrat cu asa ceva, doar sa intelega in mare cum functioneaza o astfel de aplicatie web, sa aiba o intelegere generala asupra felului in care tehnologiile vor fi folosite; cei care stiu deja, pot sa se apuce sa lucreze la aplicatie chiar daca nu s-a discutat in detaliu ce vom face exact 
+
+Concluzii
+	-facem aplicatie web, lucram in Laravel(php), Javascript, html, css
+	-ne trebuie o perioada de acomodare cu tehnologiile
