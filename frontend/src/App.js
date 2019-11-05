@@ -26,68 +26,51 @@ export default class App extends React.Component {
         let email = document.querySelector("input[name='email']").value;
         let password = document.querySelector("input[name='password']").value;
 
-        //todo - login and get user
-        //aici ar trebui sa ne conectam la server si sa intoarcem userul corect cu datele lui sau eroare altfel
-        //dar momentan sunt hardcodati aici userii si cu datele lor de login
-        if (email == "admin" && password == "admin") {
-            let user = {
-                id: 1,
-                email: "admin",
-                name: "admin",
-                type: 0
-            };
+        let formData = new FormData();
+        formData.append("email", email);
+        formData.append("password", password);
 
-            //todo - get data
+        let xhr = new XMLHttpRequest();
+        let url = serverName + "loginUser";
 
-            let xhr = new XMLHttpRequest();
-            let url = serverName + "contests";
+        xhr.open("POST", url, true);
+        xhr.send(formData);
 
-            xhr.open("GET", url);
-            xhr.send();
-            let parent = this;
-            xhr.onreadystatechange = function () {
-                if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-                    parent.setState({user: user, data: JSON.parse(this.response)[0], errorMsg: ""});
+        let parent = this;
+
+        xhr.onreadystatechange = function () {
+            if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+                let user = JSON.parse(this.response);
+                if (user.type == 0) { //logat ca admin
+                    let xhr = new XMLHttpRequest();
+                    let url = serverName + "contests";
+
+                    xhr.open("GET", url);
+                    xhr.send();
+                    xhr.onreadystatechange = function () {
+                        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+                            parent.setState({user: user, data: JSON.parse(this.response)[0], errorMsg: ""});
+                        }
+                    };
+                } else { //logat ca jurat
+                    let xhr = new XMLHttpRequest();
+                    let url = serverName + "activeContest?jury=" + user.id;
+
+                    xhr.open("GET", url);
+                    xhr.send();
+                    xhr.onreadystatechange = function () {
+                        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+                            if (this.response.length >= 3)
+                                parent.setState({user: user, data: JSON.parse(this.response), errorMsg: ""});
+                            else
+                                parent.setState({user: user, data: null, errorMsg: ""});
+                        }
+                    };
                 }
-            };
+            }
+            else
+                parent.setState({errorMsg: "Eroare: credidentiale gresite"});
         }
-
-        if (email == "jurist" && password == "jurist") {
-            let user = {
-                id: 2,
-                email: "jurist",
-                name: "jurist",
-                type: 1
-            };
-
-            //todo - get data
-
-            let data = {
-                id: 1,
-                name: "Concurs 1",
-                description: "concurs 1 desc",
-                participants: [
-                    "Andrei",
-                    "Catalin",
-                    "Sergiu"
-                ],
-                content: [
-                    {
-                        name: "proba 1",
-                        criterii: ["criteriu 1", "criteriu 2"]
-                    },
-                    {
-                        name: "proba 2",
-                        criterii: ["criteriu 1", "criteriu 2"]
-                    }
-                ]
-            };
-            this.setState({user: user, data: data, errorMsg: ""});
-            return;
-        }
-
-        //daca avem eroare
-        this.setState({errorMsg: "Eroare: credidentiale gresite"});
     }
 
     startStop(id) {
@@ -209,19 +192,19 @@ export default class App extends React.Component {
     }
 
     sendGrades() {
-        let grades = this.state.data.participants.map(
+        let grades = JSON.parse(this.state.data.participants).map(
             participant => {
                 let content = [];
-                for (let i = 0; i < this.state.data.content.length; i++) {
+                for (let i = 0; i < JSON.parse(this.state.data.content).length; i++) {
                     let probeResult = {
                         name: this.state.data.content[i].name,
                         criterii: []
                     };
-                    for (let j = 0; j < this.state.data.content[i].criterii.length; j++) {
-                        let select = document.querySelector("select[name='" + participant + "_" + this.state.data.content[i].name + "_" + this.state.data.content[i].criterii[j] + "']");
+                    for (let j = 0; j < JSON.parse(this.state.data.content)[i].criterii.length; j++) {
+                        let select = document.querySelector("select[name='" + participant + "_" + JSON.parse(this.state.data.content)[i].name + "_" + JSON.parse(this.state.data.content)[i].criterii[j] + "']");
                         probeResult.criterii.push(
                             {
-                                name: this.state.data.content[i].criterii[j],
+                                name: JSON.parse(this.state.data.content)[i].criterii[j],
                                 score: select.options[select.selectedIndex].text
                             }
                         )
@@ -240,7 +223,7 @@ export default class App extends React.Component {
 
         let formData = new FormData();
         formData.append("contest_id", this.state.data.id);
-        formData.append("jury_id", "1");
+        formData.append("jury_id", this.state.user.id);
         formData.append("contentt", JSON.stringify(grades));
 
         let xhr = new XMLHttpRequest();
@@ -251,7 +234,7 @@ export default class App extends React.Component {
         let parent = this;
         xhr.onreadystatechange = function () {
             if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-                console.log("sent");
+                parent.setState({data: null});
             }
         }
     }
@@ -399,20 +382,20 @@ export default class App extends React.Component {
                         {
                             this.state.data == null ?
                                 <div>
-                                    Niciun concurs in desfasurare.
+                                    Ai votat deja in cadrul acestui concurs sau nu exista niciun concurs in desfasurare.
                                 </div> :
                                 <div className="content jury">
                                     <h3>Concurs in desfasurare: {this.state.data.name}</h3>
                                     <p>{this.state.data.description}</p>
                                     <div className="contestants">
                                         {
-                                            this.state.data.participants.map(
+                                            JSON.parse(this.state.data.participants).map(
                                                 (participant) => {
                                                     return (
                                                         <div>
                                                             <h4>{participant}</h4>
                                                             {
-                                                                this.state.data.content.map(
+                                                                JSON.parse(this.state.data.content).map(
                                                                     (test) => {
                                                                         return (
                                                                             <div className="contest-test">
