@@ -74,7 +74,29 @@ export default class App extends React.Component {
     }
 
     startStop(id) {
-        //todo - send data
+        let xhr = new XMLHttpRequest();
+        let url = serverName + "startStopContest?id=" + id;
+
+        xhr.open("GET", url);
+        xhr.send();
+
+        let parent = this;
+
+        xhr.onreadystatechange = function () {
+            if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+                let xhr = new XMLHttpRequest();
+                let url = serverName + "contests";
+
+                xhr.open("GET", url);
+                xhr.send();
+
+                xhr.onreadystatechange = function () {
+                    if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+                        parent.setState({data: JSON.parse(this.response)[0]});
+                    }
+                };
+            }
+        };
     }
 
     addTest() {
