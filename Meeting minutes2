@@ -1,8 +1,24 @@
 L3-MPS -A doua intalnire a echipei
 
--coechipier nou, Iustin
--estimam dificultatea si efortul necesar proiectului.  Partea de backend va dura cea mai putin si credem ca poate fi facut doar de o persoana, frontend-ul va dura mai mult si acolo va lucra majoritatea;
--acum ca cerinta e inteleasa si stim in mare cam cum functioneaza conceptual aplicatia,  ne apucam sa vedem exact ce e de facut si cum vom realiza acele lucruri si sa impartim task-urile intre coechipieri;
--am facut o schitare a functionalitatilor aplicatiei + cum vor arata paginile web si cum va interactiona organizatorul/juriul cu aplicatia;
--momentan am stabilit ca Catalin va face backend-ul, Radu cu Silvia vor lucra la partea de frontend ce tine de sarcinile organizatorului, Cristi cu Iustin lucreaza la frontend la partea care interactioneaza cu juriul, Radu va face si sdd-ul;
--sapt viitorare Cristi va face graficul gantt, Silvia va termina cele doua meating minutes, Catalin incearca sa termine backend-ul in weekend si toti invata tehnologiile necesare.
+Agenda
+
+	-planificare in detaliu a proiectului
+
+Participanti
+
+ 	-Radu
+	-Catalin
+	-Silvia
+	-Cristi
+	-coechipier nou, Iustin
+
+Discutii
+
+	-estimam dificultatea si efortul necesar proiectului.  Partea de backend va dura cea mai putin si credem ca poate fi facut doar de o persoana, frontend-ul va dura mai mult si acolo va lucra majoritatea;
+	-acum ca cerinta e inteleasa si lumea stie in mare cam cum functioneaza conceptual aplicatia,  ne apucam sa vedem exact ce e de facut si cum vom realiza acele lucruri si sa impartim task-urile intre coechipieri;
+	-am facut o schitare a functionalitatilor aplicatiei + cum vor arata paginile web;
+	-momentan am stabilit ca Catalin va face backendul, Radu cu Silvia vor lucra la partea de frontend ce tine de sarcinile organizatorului, Cristi cu Iustin lucreaza la frontend, dar la partea care interactioneaza cu juriul, Radu va face si sdd-ul
+	-sapt viitorare Cristi va face graficul gantt, Silvia va termina cele doua meating minutes, Catalin incearca sa termine backend-ul in weekend si toti invata tehnologiile necesare
+
+Concluzii
+	-mai e nevoie de timp pentru acomodarea cu tehnologiile, dar stim la ce avem de lucrat si ce avem de invatat ca sa terminam proiectul
