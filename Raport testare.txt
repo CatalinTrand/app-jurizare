@@ -1,0 +1,14 @@
+Raport de testare
+
+Probleme/bug-uri intalnite si modul lor de rezolvare
+
+	1. Problema: Permission denied react-scripts
+		Pentru a lucra cu frontend-ul trebuia sa rulam 'npm start' in folderul frontend al proiectului, dar Silvia tot primea eroarea ca nu putea fi accesat react-scripts. Initial a rezolvat-o updatand versiunea de nodejs de la 10 la 12. Asta a mers pentru o versiune veche a proiectului, dar cand a clonat o versiune noua a repo-ului, a primit din nou eroarea. A rulat  comanda 'npm install react-scripts --save', apoi totul a functionat
+
+	2. Problema: Instalare Laravel pe linux- folderul vendor
+		Pentru a instala laravel, trebuie instalat mai intai composer. Si terminalul ia executabilul laravel din folderul vendor dupa ce il introduci in PATH, dar Silviei nu ii aparea folderul unde ar fi trebuit sa fie, in .config/composer. Era in .composer/vendor/bin.
+
+	3. Bug: 
+	a) Mai multe concursuri active simultan, fix => cand se da start la un concurs mai intai se da stop la toate concursurile
+	b) La rezultate concurs era vizibil doar ultimul scor trimist de un jurat, fix => am creat o tabela cu rezultate concurs cu 2 FK, 1 la Contest ID alta la Jurat ID	
+ 
